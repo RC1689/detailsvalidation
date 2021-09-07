@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<head>
+<title>My Form </title>
+<script type="text/javascript" aria-autocomplete="none"> 
+    
+        function validation()
+        {
+            var nm = document.getElementById("txt1").value;
+            var regnm = /^([a-zA-Z]+) \S ([a-z A-Z]+)$/;
+
+            var mb = document.getElementById("txt2").value;
+            //var ph = String(mb.value);
+            var regmb = /^\d{10}$/;
+            
+            var ei = document.getElementById("txt3").value;
+            var regei = /^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9-]+).([a-z]{2,20})(.[a-z]{0-3})? $/;
+            return val();
+            if (val())
+            {
+                document.getElementById("lbl1").innerHTML="Valid";
+                document.getElementById("lbl1").style.visibility="visible";
+                document.getElementById("lbl1").style.color="green";
+                return true;
+            }
+            else
+            {
+                document.getElementById("lbl1").innerHTML="Invalid";
+                document.getElementById("lbl1").style.visibility="visible";
+                document.getElementById("lbl1").style.color="red";
+                return false;
+            }
+            function val()
+            {
+            if(regnm.test(nm))
+            {
+               
+                return true;
+            }
+
+                 
+             else if(regmb.test(mb))
+            {
+                document.getElementById("lbl2").innerHTML="Valid";
+                document.getElementById("lbl2").style.visibility="visible";
+                document.getElementById("lbl2").style.color="green";
+                
+                //return ph.replace(regmb, '$1 - $2 - $3');
+                return true;
+
+            }
+                    
+
+             else if(regei.test(ei))
+            {
+                
+                document.getElementById("lbl3").innerHTML="Valid";
+                document.getElementById("lbl3").style.visibility="visible";
+                document.getElementById("lbl3").style.color="green";
+                return true;
+
+            }
+           
+                   
+            else 
+            {
+                 document.getElementById("lbl3").innerHTML="Invalid";
+                document.getElementById("lbl3").style.visibility="visible";
+                document.getElementById("lbl3").style.color="red";
+                return false;
+            }
+        
+            
+        }
+
+</script>
+
+</head>
+
+ <body>
+    <form onsubmit="return validation()" action="message.html" >
+
+       Full Name:  <input id="txt1" placeholder="First and Last Name" type="text">
+       <label id="lbl1" style="color: red; visibility: hidden">Invalid</label>
+        <br>
+        <br>
+        Contact No.: <input id="txt2" placeholder="mobile no." type="number">
+        <label id="lbl2" style="color: red; visibility: hidden">Invalid Contact No.</label>
+        <br>
+        <br>
+       Email-ID:  <input id="txt3" placeholder="Email" type="text">
+       <label id="lbl3" style="color: red; visibility: hidden">Invalid</label>
+        <br>
+        <br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+
+ </body>
+</html>
